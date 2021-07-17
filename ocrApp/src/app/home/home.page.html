@@ -1,0 +1,207 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="secondary">
+      <ion-button routerLink="/help">
+        <ion-icon slot="start" name="help"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="button-custom" style="font-size:20px;">
+      ocrApp
+    </ion-title>
+  </ion-toolbar>
+  <ion-item color="primary" style="font-size:16px;
+  text-transform: capitalize;
+  font-family: cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+    <ion-label>Select Language</ion-label>
+  <ionic-selectable
+    [disabled]="upperCap || disablingButton"
+    item-content 
+    [(ngModel)]="port"
+    [items]="ports"
+    itemValueField="id"
+    itemTextField="name"
+    [canSearch]="true"
+    (onChange)="portChange($event)">
+  </ionic-selectable>
+  </ion-item>
+
+  
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+ <div style="margin-top: 15px; ">
+  <ion-card color="primary" style="text-align: center; padding: 10px;">
+    
+    <ion-card-title class="button-custom" style="padding-bottom:10px;">Ready To Go Languages (Max: 3) </ion-card-title>
+
+    <ion-button *ngIf='isLoaded_afr'  [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(1)'>Afrikaans</ion-button>
+
+    <ion-button *ngIf='isLoaded_ara' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(2)'>Arabic</ion-button>
+    
+    <ion-button *ngIf='isLoaded_aze' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(3)'>Azerbaijani</ion-button>
+    
+    <ion-button *ngIf='isLoaded_bel' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(4)'>Belarusian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_ben' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(5)'>Bengali</ion-button>
+    
+    <ion-button *ngIf='isLoaded_bul' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(6)'>Bulgarian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_cat' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(7)'>Catalan</ion-button>
+    
+    <ion-button *ngIf='isLoaded_ces' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(8)'>Czech</ion-button>
+    
+    <ion-button *ngIf='isLoaded_chi_sim' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(9)'>Chinese</ion-button>
+    
+    <ion-button *ngIf='isLoaded_chi_tra' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(10)'>Traditional Chinese</ion-button>
+    
+    <ion-button *ngIf='isLoaded_chr' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(11)'>Cherokee</ion-button>
+    
+    <ion-button *ngIf='isLoaded_dan' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(12)'>Danish</ion-button>
+    
+    <ion-button *ngIf='isLoaded_deu' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(13)'>German</ion-button>
+    
+    <ion-button *ngIf='isLoaded_ell' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(14)'>Greek</ion-button>
+    
+    <ion-button *ngIf='isLoaded_eng' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(15)'>English</ion-button>
+    
+    <ion-button *ngIf='isLoaded_enm' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(16)'>English (Old)</ion-button>
+    
+    <ion-button *ngIf='isLoaded_meme' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(17)'>Internet Meme</ion-button>
+    
+    <ion-button *ngIf='isLoaded_epo' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(18)'>Esperanto</ion-button>
+    
+    <ion-button *ngIf='isLoaded_epo_alt' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(19)'>Esperanto alternative</ion-button>
+    
+    <ion-button *ngIf='isLoaded_equ' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(20)'>Math</ion-button>
+    
+    <ion-button *ngIf='isLoaded_est' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(21)'>Estonian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_eus' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(22)'>Basque</ion-button>
+    
+    <ion-button *ngIf='isLoaded_fin' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(23)'>Finnish</ion-button>
+    
+    <ion-button *ngIf='isLoaded_fra'  [disabled]="disablingButton"color='secondary' class='button-custom' (click)='portChange2(24)'>French</ion-button>
+    
+    <ion-button *ngIf='isLoaded_frk' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(25)'>Frankish</ion-button>
+    
+    <ion-button *ngIf='isLoaded_frm' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(26)'>French (Old)</ion-button>
+    
+    <ion-button *ngIf='isLoaded_glg' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(27)'>Galician</ion-button>
+    
+    <ion-button *ngIf='isLoaded_grc' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(28)'>Ancient Greek</ion-button>
+    
+    <ion-button *ngIf='isLoaded_heb' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(29)'>Hebrew</ion-button>
+    
+    <ion-button *ngIf='isLoaded_hin' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(30)'>Hindi</ion-button>
+    
+    <ion-button *ngIf='isLoaded_hrv' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(31)'>Croatian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_hun' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(32)'>Hungarian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_ind' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(33)'>Indonesian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_isl' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(34)'>Icelandic</ion-button>
+    
+    <ion-button *ngIf='isLoaded_ita' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(35)'>Italian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_ita_old' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(36)'>Italian (Old)</ion-button>
+    
+    <ion-button *ngIf='isLoaded_jpn' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(37)'>Japanese</ion-button>
+    
+    <ion-button *ngIf='isLoaded_kan' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(38)'>Kannada</ion-button>
+    
+    <ion-button *ngIf='isLoaded_kor' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(39)'>Korean</ion-button>
+    
+    <ion-button *ngIf='isLoaded_lav' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(40)'>Latvian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_lit' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(41)'>Lithuanian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_mal' [disabled]="disablingButton"  color='secondary' class='button-custom' (click)='portChange2(42)'>Malayalam</ion-button>
+    
+    <ion-button *ngIf='isLoaded_mkd' [disabled]="disablingButton"  color='secondary' class='button-custom' (click)='portChange2(43)'>Macedonian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_mlt' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(44)'>Maltese</ion-button>
+    
+    <ion-button *ngIf='isLoaded_msa' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(45)'>Malay</ion-button>
+    
+    <ion-button *ngIf='isLoaded_nld' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(46)'>Dutch</ion-button>
+    
+    <ion-button *ngIf='isLoaded_nor' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(47)'>Norwegian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_pol' [disabled]="disablingButton"  color='secondary' class='button-custom' (click)='portChange2(48)'>Polish</ion-button>
+    
+    <ion-button *ngIf='isLoaded_por'  [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(49)'>Portuguese</ion-button>
+    
+    <ion-button *ngIf='isLoaded_ron' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(50)'>Romanian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_rus' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(51)'>Russian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_slk' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(52)'>Slovakian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_slv' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(53)'>Slovenian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_spa' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(54)'>Spanish</ion-button>
+    
+    <ion-button *ngIf='isLoaded_spa_old' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(55)'>Old Spanish</ion-button>
+    
+    <ion-button *ngIf='isLoaded_sqi' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(56)'>Albanian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_srp' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(57)'>Serbian (Latin)</ion-button>
+    
+    <ion-button *ngIf='isLoaded_swa' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(58)'>Swahili</ion-button>
+    
+    <ion-button *ngIf='isLoaded_swe' [disabled]="disablingButton"  color='secondary' class='button-custom' (click)='portChange2(59)'>Swedish</ion-button>
+    
+    <ion-button *ngIf='isLoaded_tam' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(60)'>Tamil</ion-button>
+    
+    <ion-button *ngIf='isLoaded_tel' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(61)'>Telugu</ion-button>
+    
+    <ion-button *ngIf='isLoaded_tgl' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(62)'>Tagalog</ion-button>
+    
+    <ion-button *ngIf='isLoaded_tha' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(63)'>Thai</ion-button>
+    
+    <ion-button *ngIf='isLoaded_tur' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(64)'>Turkish</ion-button>
+    
+    <ion-button *ngIf='isLoaded_ukr' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(65)'>Ukrainian</ion-button>
+    
+    <ion-button *ngIf='isLoaded_vie' [disabled]="disablingButton" color='secondary' class='button-custom' (click)='portChange2(66)'>Vietnamese</ion-button>
+    
+      </ion-card>
+</div>
+
+
+
+  <div style="margin-top: 15px; ">
+    <ion-card color="primary" style="text-align: center; padding: 10px;">
+      <ion-card-header>
+        <ion-card-title *ngIf="image=='https://tesseract.projectnaptha.com/img/eng_bw.png'" class="button-custom" style="padding-bottom:10px;">Captured Image will be visible here</ion-card-title>
+        <ion-img [src]=image></ion-img>
+      </ion-card-header>
+      <ion-card-content>
+       <ion-button color="secondary" class="button-custom" [disabled]="!workerReady || disablingButton"  (click)="captureImage()"><strong>Capture Image</strong></ion-button>
+       <ion-button color="secondary" class="button-custom" [disabled]="!workerReady || disablingButton" (click)="recognizeImage()"><strong>Recognize Image</strong></ion-button>
+      </ion-card-content>
+       </ion-card>
+   
+  </div>
+  <div style="margin-top: 30px; " >
+    <ion-card *ngIf="workerReady && captureProgress > 0" color="primary"  style="text-align: center; padding: 10px; margin: 10px;  ">
+      <ion-card-header>
+        <ion-card-title class="progress">
+         <strong> Recognition Progress: {{captureProgress}}%</strong>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content  style="text-align: left;">
+        {{ ocrResult}}
+      </ion-card-content>
+      <ion-button *ngIf="captureProgress ==100"  color="secondary" class="button-custom" [disabled]="!workerReady" (click)="buttonFn()"><strong>Copy to clipboard!</strong></ion-button>
+  
+    </ion-card>
+  </div>
+
+ 
+
+ 
+
+</ion-content>

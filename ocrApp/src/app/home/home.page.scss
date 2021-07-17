@@ -1,0 +1,42 @@
+#container {
+  text-align: center;
+  
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.progress{
+  color: rgb(129, 245, 129) !important;
+  font-size: 20px;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+.button-custom{
+  font-size:16px;
+  text-align:center;
+  text-transform: capitalize;
+  font-family: cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
